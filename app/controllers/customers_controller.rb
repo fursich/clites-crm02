@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def new
-    @customer = Cumtomers.new
+    @customer = Customer.new
   end
 
   def create
