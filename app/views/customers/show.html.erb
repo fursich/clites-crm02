@@ -13,5 +13,16 @@
         </d1>
         <%= link_to '編集',edit_customer_path(@customer), class: "btn btn-default" %>
         <%= link_to '戻る',customers_path, class: "btn btn-default" %>
+
+        <hr />
+        <%= form_for (@comment, url: {controller: :comments, action: create}) do |f| %>
+            <div class = "form-group">
+                <%= f.label :body, '対応内容' %>
+                <%= f.text_area :body, class: "form-control" %>
+            </div>
+            <%= f.hidden_field :customer_id, value: @customer.id %>
+            <%= f.submit class: "btn btn-default" %>
+        <% end %>
+
     </div>
 </div>

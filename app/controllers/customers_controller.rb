@@ -9,6 +9,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @comments = Comment.new
   end
 
   def new
