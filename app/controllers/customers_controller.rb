@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @comment = Comment.new
     # @comments = Comment.where(customer_id: params[:id].to_i)
-    @customers = Comment.customers
+    @comments = @customer.comments
   end
 
   def new
