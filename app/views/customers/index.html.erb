@@ -10,6 +10,48 @@
                 <%= link_to '顧客登録', new_customer_path, class: "btn btn-default pull-right" %>
             </div>
         </div>
+
+        <%= search_form_for @q do |f| %>
+            <div class = "row">
+                <div class = "col-sm-2 col-xs-12">
+                    <div class ="form_group">
+                        <%= f.label :family_name_cont, '姓' %><br>
+                        <%= f.search_field :family_name_cont, class: "form_control input_sm" %>
+                    </div>
+                </div>
+                <div class = "col-sm-2 col-xs-12">
+                    <div class ="form_group">
+                        <%= f.label :given_name_cont, '名' %><br>
+                        <%= f.search_field :given_name_cont, class: "form_control input_sm" %>
+                    </div>
+                </div>
+                <div class = "col-sm-2 col-xs-12">
+                    <div class ="form_group">
+                        <%= f.label :email_cont, '電子メール' %><br>
+                        <%= f.search_field :email_cont, class: "form_control input_sm" %>
+                    </div>
+                </div>
+                <div class = "col-sm-3 col-xs-12">
+                    <div class ="form_group">
+                        <%= f.label :company_name_cont, '会社名' %><br>
+                        <%= f.search_field :company_name_cont, class: "form_control input_sm" %>
+                    </div>
+                </div>
+                <div class = "col-sm-3 col-xs-12">
+                    <div class ="form_group">
+                        <%= f.label :post_position_name_cont, '役職名' %><br>
+                        <%= f.search_field :post_position_name_cont, class: "form_control input_sm" %>
+                    </div>
+                </div>
+            </div>
+            <div class ="row">
+                <div class = "col-xs-12 text-center">
+                    <%= f.submit "検索", class: "btn btn-default" %>
+                    <%= link_to "リセット", request.path, class: "btn btn-default" %>
+                </div>
+            </div>
+        <% end %>
+        <hr>
         <div class = "row">
             <div class="col-md-12">
                 <table class="table table-stripped">

@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   def index
-    @customers=Customer.page(params[:page])
+    @q = Customer.search(params[:q])
+    @customers = @q.result(distinct: true).page(params[:page])
   end
 
   def show
