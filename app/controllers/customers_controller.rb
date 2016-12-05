@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_customer, only: [:show, :destroy, :edit, :update]
   
   def index
     @q = Customer.search(params[:q])
@@ -8,7 +9,6 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
     @comment = Comment.new
     # @comments = Comment.where(customer_id: params[:id].to_i)
     @comments = @customer.comments
@@ -29,18 +29,15 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy
     
     redirect_to root_path
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
 
     if @customer.update(customer_params)
       redirect_to @customer
@@ -50,6 +47,10 @@ class CustomersController < ApplicationController
   end
 
   private
+
+  def find_customer
+    @customer = Customer.find(params[:id])
+  end
   
   def customer_params
     params.require(:customer).permit(
