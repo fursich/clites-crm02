@@ -39,6 +39,7 @@
         <% end %>
 
         <hr />
+
         <% if current_user.image_url.present? %>
             <%= image_tag current_user.image_url, width: 55, height: 55 %>
         <% else %>
