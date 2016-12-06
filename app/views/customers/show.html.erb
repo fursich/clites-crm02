@@ -21,12 +21,14 @@
         <h2>対応履歴</h2>
         <% @comments.each do |comment| %>
             <div class = "media">
-                <div class = "media-body">
+                <div class = "media-left">
                     <% if comment.user.image_url.present? %>
-                        <%= image_tag comment.user.image_url, width: 55, height: 55 %>
+                        <%= image_tag comment.user.image_url, width: 50, height: 50 %>
                     <% else %>
-                        <%= image_tag "no_name.png", width: 55, height: 55 %>
+                        <%= image_tag "no_name.png", width: 50, height: 50 %>
                     <% end %>
+                </div>
+                <div class = "media-body">
                     <%= simple_format(comment.body) %>
                     <p class = "text-muted">
                         投稿記事:<%= comment.created_at.strftime('%Y%m%d %H:%M') %>
@@ -35,6 +37,8 @@
                 </div>
             </div>
         <% end %>
+
+        <hr />
         <% if current_user.image_url.present? %>
             <%= image_tag current_user.image_url, width: 55, height: 55 %>
         <% else %>
