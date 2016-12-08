@@ -16,6 +16,10 @@ ja:
         email: "メールアドレス"
         company_id: "所属会社"
         post_id: "役職"
+      user:
+        family_name: "姓"
+        given_name: "名"
+        email: "メールアドレス"
   date:
     abbr_day_names:
     - 日
